@@ -129,5 +129,23 @@ public class ListaEncadeada<T> implements Lista<T> {
         }
        }
     }
+
+    //  questão 2 da revisão
+    // public Lista<T> metodo() {
+    //     NoLista<T> p1 = primeiro;
+    //     NoLista<T> p2 = null;
+    //     int temp;
+
+    //     if (p1 != null) {
+    //         // temp = p1.getInfo();
+    //     }
+    //     while (p1 != null) {
+    //         if (p1.getInfo() > temp) {
+    //             p2 = p1;
+    //         }
+    //         p1 = p1.getProximo();
+    //     }
+    //     return p1;
+    // }
     
 }

@@ -8,4 +8,7 @@ public interface Pilha<T> {
     boolean estaVazia();
     void liberar();
 
+    // botei o getTamanho pra questão 3 dos exercícios de revisão
+    // não foi
+    int getTamanho();
 }
