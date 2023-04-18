@@ -15,7 +15,7 @@ public class Principal {
         pilha2.push(7);
         pilha2.push(8);
 
-        System.out.println(pilha.compara(pilha2));
+       // System.out.println(pilha.compara(pilha2));
 
         System.out.println("---------------------------------");
 
