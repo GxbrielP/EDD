@@ -2,7 +2,7 @@ package arvores;
 
 public class TesteArvoresBinarias {
 	public static void main(String[] args) {
-		ArvoreBinariaBckp<Integer> arv = new ArvoreBinariaBckp<>();
+		ArvoreBinaria<Integer> arv = new ArvoreBinaria<>();
 		System.out.println("toString da arv: " + arv.toString());
 		NoArvoreBinaria<Integer> no4 = new NoArvoreBinaria<>(4);
 		NoArvoreBinaria<Integer> no5 = new NoArvoreBinaria<>(5);
@@ -11,7 +11,7 @@ public class TesteArvoresBinarias {
 		NoArvoreBinaria<Integer> no6 = new NoArvoreBinaria<>(6, no7, null);
 		NoArvoreBinaria<Integer> no3 = new NoArvoreBinaria<>(3, null, no6);
 		NoArvoreBinaria<Integer> no1 = new NoArvoreBinaria<>(1, no2, no3);
-		ArvoreBinariaBckp<Integer> arvore = new ArvoreBinariaBckp<>();
+		ArvoreBinaria<Integer> arvore = new ArvoreBinaria<>();
 		arvore.setRaiz(no1);
 		System.out.println("toString da arvore: " + arvore.toString());
 		System.out.println(arvore.pertence(7).getInfo());

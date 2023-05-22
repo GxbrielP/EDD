@@ -1,19 +1,18 @@
-package arvores;
-
-public class ArvoreBST<T extends Comparable<T>> extends NoArvoreBinaria<T> {
-
-    public ArvoreBST() {
-    }
+public class ArvoreBST<T extends Comparable<T>> extends ArvoreBinariaAbstract<T> {
     
-    public inserir(T info){
-
+    public void inserir(T info) {
+        if (this.vazia()) {
+            this.setRaiz(new NoArvoreBST<T>(info));
+        } else {
+            ((NoArvoreBST<T>) this.getRaiz()).inserir(info);
+        }
     }
 
     public NoArvoreBST<T> buscar(T info) {
-        if ((info.compareTo(this.getInfo()) == 0) == info.equals(this.getInfo())) {
-            return this.getInfo();
-        } else if ((info.compareTo(this.getInfo()) < 0) != info.equals(this.getInfo())) {
-
+        if (this.vazia()) {
+            return null;
+        } else {
+            return ((NoArvoreBST<T>) this.getRaiz()).buscar(info);
         }
     }
 }
