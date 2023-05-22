@@ -46,18 +46,14 @@ public class NoArvore<T> extends Arvore<T> {
         }
     }
 
-    public NoArvore<T> testa(T info) {
-        if(this.info.equals(info)) {
-            return this;
-        } else return null;
-    }
-
     public int getAltura() {
         int altura = 0;
+
         if (this.filho != null) {
             altura++;
             altura += this.filho.getAltura();
 		}
+
 		if (this.irmao != null) {
             int altura2 = 0;
             altura2 += this.irmao.getAltura();
@@ -68,30 +64,43 @@ public class NoArvore<T> extends Arvore<T> {
 		return altura;
 	}
 
-   // Só vai até 2
-    public int getNivel(T info) {
-        int nivel = 0;
-        while (!this.info.equals(info)) {
-            if (this.filho != null) {
-                nivel++;
-                nivel+=filho.getNivel(info);
-                if (this.filho.testa(info) != null){
-                    return nivel;
-                } 
-            }
+   // Nível não passa de 2
+   public int getNivel(T info) {
+    int nivel = 0;
 
-            if (this.irmao != null) {
-                if (this.irmao.testa(info) != null) {
-                    return nivel;
-                }
-                irmao.getNivel(info);
-            }
-            return nivel;
+    while (!this.info.equals(info)) {
+        if (this.filho != null) {
+            nivel++;
+            nivel+=filho.getNivel(info);
+        }
+
+        if (this.irmao != null) {
+            irmao.getNivel(info);
         }
         return nivel;
     }
+    return nivel;
+    }
 
     public boolean isBalanceada() {
-        return false;
+        return calcularDesbalanceamento() <= 1;
+    }
+    
+    private int calcularDesbalanceamento() {
+        int alturaFilho = 0;
+        int alturaIrmao = 0;
+    
+        if (this.filho != null) {
+            alturaFilho = this.filho.getAltura();
+        }
+    
+        if (this.irmao != null) {
+            alturaIrmao = this.irmao.getAltura();
+        }
+    
+        int desbalanceamentoFilho = this.filho != null ? this.filho.calcularDesbalanceamento() : 0;
+        int desbalanceamentoIrmao = this.irmao != null ? this.irmao.calcularDesbalanceamento() : 0;
+    
+        return Math.max(alturaFilho - alturaIrmao, Math.max(desbalanceamentoFilho, desbalanceamentoIrmao));
     }
 }

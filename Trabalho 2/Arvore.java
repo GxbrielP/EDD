@@ -43,11 +43,10 @@ public class Arvore<T> {
 		}
 	}
 
-	public boolean isBalanceada() {
-		if (this.vazia()) {
-			return false;
-		} else {
-			return isBalanceada();
+	public boolean isBalanceada(){
+		if (this.vazia()){
+			return true;
 		}
-	}
+		return this.raiz.isBalanceada();
+    }
 }
